@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './utils/styles/app.css';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
-import Nav from './components/Nav/index';
+import Navbar from './components/Navbar/index';
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Navbar />
         <Switch>
           <Route exact path={['/', '/about']} component={About} />
           <Route exact path={'/portfolio'} component={Portfolio} />
