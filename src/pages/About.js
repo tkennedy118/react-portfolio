@@ -1,9 +1,12 @@
 import React from 'react';
+import Jumbotron from '../components/Jumbotron/index';
 
 export default function About() {
   return (
     <div>
-      This is the about page.
+      <Jumbotron>
+
+      </Jumbotron>
     </div>
   );
 }
