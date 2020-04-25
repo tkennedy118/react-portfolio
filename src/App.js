@@ -5,6 +5,7 @@ import './utils/styles/app.css';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Navbar from './components/Navbar/index';
+import Footer from './components/Footer/index';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path={'/portfolio'} component={Portfolio} />
           <Route component={About} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

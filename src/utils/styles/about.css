@@ -1,5 +1,47 @@
-.cus-jumbo {
+* {
+  font-size: 24px;
+}
+
+.about-jumbotron-gray {
   background: #373b44; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #B8F3FF, #1A090D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #f1f1f1, #bdc3c7); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f1f1f1, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-top: 2px solid #f3f3f3;
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.about-jumbotron-blue {
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #82bcca, #75b8c8); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #82bcca, #75b8c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-top: 2px solid #f3f3f3;
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.about-jumbotron-red {
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #A61C3C, #881a33); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #A61C3C, #881a33); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-top: 2px solid #f3f3f3;
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.about-font-large {
+  font-size: 40px;
+}
+
+.about-font-medium {
+  font-size: 32px;
+}
+
+.about-text-white {
+  color: #f3f3f3;
+}
+
+.about-text-blue {
+  color: #32bcca;
+}
+
+.about-text-red {
+  color: #a61c3c
 }

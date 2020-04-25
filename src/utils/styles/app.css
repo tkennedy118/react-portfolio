@@ -3,3 +3,8 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: 'Special Elite', 'Comic Sans MS', cursive, sans-serif;
+  padding-top: 75px;
+}
