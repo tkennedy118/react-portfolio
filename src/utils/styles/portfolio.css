@@ -1,0 +1,12 @@
+.port-font-small {
+  font-size: .85rem;
+}
+
+.port-card-body-margin {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.port-card:hover {
+  background-color: #bdc3c7;
+}
