@@ -5,11 +5,11 @@
 }
 
 .font-large {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
-.font-medium {
-  font-size: 1rem;
+.font-small {
+  font-size: .95rem;
 }
 
 .text-white {
@@ -27,6 +27,22 @@
 .vl-blue {
   border-left: 8px solid #32bcca;
   margin-right: 16px;
+}
+
+/* changes to react-bootstrap classes */
+div.card {
+  border: 0;
+  border-radius: 0;
+}
+
+div.card-header {
+  color: #32bcca;
+  background: #ffffff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #fafafa, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #fafafa, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-top: 1px solid #eef2f3;
+  border-bottom: 1px solid #eef2f3;
+  text-align: center;
 }
 
 @media only screen and (max-width: 767px) {

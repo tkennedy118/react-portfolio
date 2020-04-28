@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Jumbotron, Row, Col, Image } from 'react-bootstrap';
+import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
 import '../utils/styles/about.css';
 
 export default function About() {
@@ -23,11 +23,49 @@ export default function About() {
       <Jumbotron className='my-0 about-jumbotron-background' fluid>
         <Container>
           <Row>
-            <Col md={{ span: 6, offset: 3 }}>
-              <h3 className='text-center my-4'>What you should know about me.</h3>
-              <p className='text-center'>
-                
-              </p>
+            <Col md={{ span: 10, offset: 1 }}>
+              <h3 className='text-center my-3'><span className='vl-blue'></span>About</h3>
+              <Row>
+                <Col md={6} className='my-3'>
+                  <p>
+                    I've alway wanted to live in a constant state of not-knowing-enough, 
+                    and what better platfor for that than the web?
+                  </p>
+                  <p>
+                    With a B.S. in computer science and a Master's in IT on the way, I'm 
+                    ready to make your vision come to life.
+                  </p>
+                  <p className='text-center'>COOL REACT TRICK HERE</p>
+                </Col>
+                <Col md={6} className='my-auto'>
+                <Accordion defaultActiveKey=''>
+                  <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                      Flexiblity
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                      <Card.Body>Hello! I'm the body</Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                  <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                      Cooperation
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                      <Card.Body>Hello! I'm another body</Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                  <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="2">
+                      Listening
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="2">
+                      <Card.Body>Hello! I'm another body</Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                </Accordion>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
