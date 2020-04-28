@@ -1,47 +1,40 @@
-* {
-  font-size: 1.15rem;
+.about-jumbotron-background {
+  background: #ffffff;
+  border-top: .5px solid #eef2f3;
+  border-bottom: .5px solid #eef2f3;
 }
 
-.about-jumbotron-gray {
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f1f1f1, #bdc3c7); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f1f1f1, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-top: 2px solid #f3f3f3;
-  border-bottom: 2px solid #f3f3f3;
+.font-large {
+  font-size: 1.25rem;
 }
 
-.about-jumbotron-blue {
-  background: #373b44; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #82bcca, #75b8c8); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #82bcca, #75b8c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-top: 2px solid #f3f3f3;
-  border-bottom: 2px solid #f3f3f3;
-}
-
-.about-jumbotron-red {
-  background: #373b44; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #A61C3C, #881a33); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #A61C3C, #881a33); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-top: 2px solid #f3f3f3;
-  border-bottom: 2px solid #f3f3f3;
-}
-
-.about-font-large {
-  font-size: 1.25px;
-}
-
-.about-font-medium {
+.font-medium {
   font-size: 1rem;
 }
 
-.about-text-white {
+.text-white {
   color: #f3f3f3;
 }
 
-.about-text-blue {
+.text-blue {
   color: #32bcca;
 }
 
-.about-text-red {
+.text-red {
   color: #a61c3c
+}
+
+.vl-blue {
+  border-left: 8px solid #32bcca;
+  margin-right: 16px;
+}
+
+@media only screen and (max-width: 767px) {
+  #profile-pic {
+    max-height: 200px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-bottom: 32px;
+    margin-top: -32px;
+  }
 }
