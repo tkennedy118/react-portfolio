@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/index';
 import Footer from './components/Footer/index';
 
 function App() {
+  
   return (
     <Router>
       <div>

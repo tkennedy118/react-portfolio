@@ -1,50 +1,101 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown } from '@fortawesome/free-solid-svg-icons';
+import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
 import '../utils/styles/about.css';
+import '../utils/styles/shapes.css';
 
-export default function About() {
+export default function About(props) {
+
+  // Used for changing classes at specific viewports.
+  const size = useWindowSize();
+
+
+  /* ********************** Code from Gabe Ragland at usehooks.com/usewindowsize. ********************* */
+  function useWindowSize() {
+    const isClient = typeof window === 'object';
+
+    function getSize() {
+      return {
+        width: isClient ? window.innerWidth : undefined,
+        height: isClient ? window.innerHeight : undefined
+      };
+    }
+
+    const [windowSize, setWindowSize] = useState(getSize);
+
+    useEffect(() => {
+      if (!isClient) {
+        return false;
+      }
+      
+      function handleResize() {
+        setWindowSize(getSize());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }); // Empty array ensures that effect is only run on mount and unmount
+
+    return windowSize;
+  }
+  /* ************************************************************************************************** */
+
   return (
     <>
-      <Jumbotron className='py-0 my-0 about-jumbotron-background' fluid>
-        <Container>
-          <Row>
-            <Col md={7} className='text-center my-5 my-md-auto'>
-              <h2>
-                <span className='vl-blue'></span>Tyler Kennedy
-              </h2>
-              <p>I am an observer, a learner, and an achiever.</p>
-            </Col>
-            <Col md={5} className='text-center'>
-              <Image id='profile-pic' src={require('../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid />
-            </Col>
-          </Row>
-        </Container>
+      {/****************************************** INTORDUCTION *****************************************/}
+      <Jumbotron className='jumbo-bg-light v-center-rows' fluid>
+        <Row className='bg-animated'>
+          <Col md={6} className='text-center my-5 my-md-auto'>
+            <h2 id='name' className='my-3'>
+              <span className='ul-red ol-red'>
+                <span className='vl-blue-left'></span>
+                  Tyler Kennedy
+                <span className='vl-blue-right'></span>
+              </span>
+            </h2>
+            <p>I am an observer, a learner, and an achiever.</p>
+          </Col>
+          <Col md={6} className='text-center'>
+            <div className='div-border'>
+              <Image id='profile-pic' src={require('../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid/>
+            </div>
+          </Col>
+        </Row>
       </Jumbotron>
-      <Jumbotron className='my-0 about-jumbotron-background' fluid>
+      {/********************************************* ABOUT *********************************************/}
+      {(size.width > 767) ? <div className='triangle-down'></div> : <></>}
+      <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
         <Container>
+          <h3 className='header-dark'><span className='ul-red ol-red'>About</span></h3>
           <Row>
             <Col md={{ span: 10, offset: 1 }}>
-              <h3 className='text-center my-3'><span className='vl-blue'></span>About</h3>
               <Row>
-                <Col md={6} className='my-3'>
-                  <p>
-                    I've alway wanted to live in a constant state of not-knowing-enough, 
-                    and what better platfor for that than the web?
-                  </p>
-                  <p>
-                    With a B.S. in computer science and a Master's in IT on the way, I'm 
-                    ready to make your vision come to life.
-                  </p>
-                  <p className='text-center'>COOL REACT TRICK HERE</p>
+                <Col md={{ span: 6, offset: 3 }} className='my-3'>
+                  <div className='text-center font-large'>
+                    <p>
+                      I've alway wanted to live in a constant state of not-knowing-enough, 
+                      and what better platform for that than the web?
+                    </p>
+                    <p>
+                      With a B.S. in computer science and a Master's in IT on the way, I'm 
+                      ready to make your vision come to life.
+                    </p>
+                  </div>
                 </Col>
-                <Col md={6} className='my-auto'>
-                <Accordion defaultActiveKey=''>
+                <Col md={{ span: 10, offset: 1 }} className='my-auto'>
+                <h3 className='text-center mt-5 mb-3'>Soft Skills</h3>
+                <Accordion defaultActiveKey='1'>
                   <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="0">
                       Flexiblity
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
-                      <Card.Body>Hello! I'm the body</Card.Body>
+                      <Card.Body>
+                        I've never really had a set schedule, and as a result I've learned to be flexible. 
+                        Let me know what works for you, and I'll make it work for me too.
+                      </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                   <Card>
@@ -52,7 +103,9 @@ export default function About() {
                       Cooperation
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
-                      <Card.Body>Hello! I'm another body</Card.Body>
+                      <Card.Body>
+                        I work well with others... plain and simple. 
+                      </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                   <Card>
@@ -60,7 +113,10 @@ export default function About() {
                       Listening
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="2">
-                      <Card.Body>Hello! I'm another body</Card.Body>
+                      <Card.Body>
+                        This is maybe a weird skill to talk about, but it's more important than most realize.
+                        A focused listener can figure out what a client wants, and when to ask questions.
+                      </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                 </Accordion>
@@ -70,18 +126,97 @@ export default function About() {
           </Row>
         </Container>
       </Jumbotron>
-      <Jumbotron className='py-0 my-0 about-jumbotron-background' fluid>
-        <Container>
+      {(size.width > 767) ? <div className='triangle-up'></div> : <></>}
+      {/********************************************* WHY ME ********************************************/}
+      <h3 className='header-light'><span className='ul-red ol-red'>Why me?</span></h3>
+      <Jumbotron className='jumbo-bg-light' fluid>
+        <Container className='v-center-rows'>
           <Row>
-            <Col md={{ span: 7, offset: 1 }}>
-              <h3 className='text-center my-4'>What can I do?</h3>
-              <p className='text-center'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type 
-                specimen book. It has survived not only five centuries, but also the leap into 
-                electronic typesetting, remaining essentially unchanged. 
-              </p>
+            <Col md={{ span: 8, offset: 2 }}>
+              <Row>
+                <Col md={6}>
+                    <div className='hexagon mx-auto hex-margins'>
+                      <FontAwesomeIcon icon={faDesktop} size='2x' className='hex-icons'></FontAwesomeIcon>
+                    </div>
+                    <div className='text-center'>
+                      <h4>Browser Knowledge</h4>
+                      <span>CSS</span>
+                      <span className='dot'></span>
+                      <span>&#60;&#47;HTML&#62;</span>
+                      <span className='dot'></span>
+                      <span>JavaScript</span>
+                      <span className='dot'></span>
+                      <span>jQuery</span>
+                    </div>
+                </Col>
+                <Col md={6}>
+                    <div className='hexagon mx-auto hex-margins'>
+                    <FontAwesomeIcon icon={faServer} size='2x' className='hex-icons'></FontAwesomeIcon>
+                    </div>
+                    <div className='text-center'>
+                      <h4>Server Side</h4>
+                      <span>Node.js</span>
+                      <span className='dot'></span>
+                      <span>Express.js</span>
+                      <span className='dot'></span>
+                      <span>API Usage</span>
+                    </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                    <div className='hexagon mx-auto hex-margins'>
+                      <FontAwesomeIcon icon={faDatabase} size='2x' className='hex-icons'></FontAwesomeIcon>
+                    </div>
+                    <div className='text-center'>
+                      <h4>Database</h4>
+                      <span>MySQL</span>
+                      <span className='dot'></span>
+                      <span>MongoDB</span>
+                    </div>
+                </Col>
+                <Col md={6}>
+                    <div className='hexagon mx-auto hex-margins'>
+                      <FontAwesomeIcon icon={faGitAlt} size='2x' className='hex-icons'></FontAwesomeIcon>
+                    </div>
+                    <div className='text-center'>
+                      <h4>Developer Tools</h4>
+                      <span>Heroku</span>
+                      <span className='dot'></span>
+                      <span>Git</span>
+                      <span className='dot'></span>
+                      <span>Github</span>
+                    </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                    <div className='hexagon mx-auto hex-margins'>
+                      <FontAwesomeIcon icon={faGraduationCap} size='2x' className='hex-icons'></FontAwesomeIcon>
+                    </div>
+                    <div className='text-center'>
+                      <h4>Education</h4>
+                      <span>B.S. Computer Science</span>
+                      <span className='dot'></span>
+                      <span>B.S Sociology</span>
+                      <span className='dot'></span>
+                      <span>Vanderbilt Coding Bootcamp</span>
+                    </div>
+                </Col>
+                <Col md={6}>
+                    <div className='hexagon mx-auto hex-margins'>
+                      <FontAwesomeIcon icon={faSortAmountDown} size='2x' className='hex-icons'></FontAwesomeIcon>
+                    </div>
+                    <div className='text-center'>
+                      <h4>Concepts</h4>
+                      <span>CRUD Operations</span>
+                      <span className='dot'></span>
+                      <span>MVC</span>
+                      <span className='dot'></span>
+                      <span>Algorithms</span>
+                    </div>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>

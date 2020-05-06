@@ -1,0 +1,62 @@
+.hexagon {
+  width: 100px;
+  height: 55px;
+  background: #32bcca;
+  position: relative;
+}
+
+.hexagon:before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid #32bcca;
+}
+
+.hexagon:after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid #32bcca;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-top: 64px solid #ffffff;
+  margin-bottom: -64px;
+  position: relative;
+  z-index: 1;
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-bottom: 64px solid #ffffff;
+  margin-top: -64px;
+  position: relative;
+  z-index: 1;
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: auto 8px;
+  margin-bottom: 2px;
+}
