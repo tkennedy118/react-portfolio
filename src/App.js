@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './utils/styles/app.css';
-import About from './pages/About';
+import './app.css';
+import About from './pages/About/index';
 import Portfolio from './pages/Portfolio';
 import Navbar from './components/Navbar/index';
 import Footer from './components/Footer/index';

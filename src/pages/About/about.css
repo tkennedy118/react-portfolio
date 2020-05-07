@@ -1,48 +1,10 @@
-
-
-.font-large {
-  font-size: 1.15rem;
-}
-
 .font-small {
   font-size: .95rem;
 }
 
-.text-white {
-  color: #f3f3f3;
+.font-large {
+  font-size: 1.15rem;
 }
-
-.text-blue {
-  color: #32bcca;
-}
-
-.text-red {
-  color: #a61c3c
-}
-
-/* .element {
-  display: inline-block;
-  background-color: #32bcca;
-  height: 100px;
-  width: 100px;
-  font-size: 1px;
-  padding: 1px;
-  color: white;
-  margin-right: 5px;
-  margin-left: 5px;
-  animation: roll 3s 1;
-  transform: rotate(30deg);
-  opacity: .7;
-}
-
-@keyframes roll {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 
 @keyframes animatedBackground {
   from { background-position: 0 0; }
@@ -52,11 +14,11 @@
 .bg-animated {
   width: 100vw;
   height: auto;
-  background-image: url('../images/profile-background.png');
+  background-image: url('../../utils/images/background-lines.png');
   background-position: 0px 0px;
   background-repeat: repeat-x;
 
-  animation: animatedBackground 60s linear infinite;
+  animation: animatedBackground 30s linear infinite;
 }
 
 /* changes to react-bootstrap classes */
@@ -179,7 +141,7 @@ div.card-body {
 
   #name {
     font-size: 8vw;
-    color: #393d3f;
+    color: #eef2f3;
     opacity: 0.5;
   }
 }
@@ -201,14 +163,9 @@ div.card-body {
     padding-top: 0px;
   }
 
-  .div-border {
-    border-top: 2px solid #eef2f3;
-    border-bottom: 2px solid #eef2f3;
-  }
-
   #name {
     font-size: 5vw;
-    color: #393d3f;
+    color: #eef2f3;
     opacity: 0.5;
   }
 }

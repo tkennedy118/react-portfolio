@@ -1,16 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
+import { useTransition,  animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
-import '../utils/styles/about.css';
-import '../utils/styles/shapes.css';
+import './about.css';
+import '../../utils/styles/shapes.css';
+
+const projects = [
+  {
+    title: 'Novel 19',
+    techs: ['Node', 'Express', 'Handlebars', 'Passport', 'Sequelize', 'Javascript'],
+    image: 'covid-19.png',
+    link: 'https://novel-19.herokuapp.com/home'
+  },
+  {
+    title: 'Easy Lyrics',
+    techs: ['jQuery', 'AJAX', 'JavaScript'],
+    image: 'easy-lyrics.png',
+    link: 'https://tkennedy118.github.io/easy-lyrics/'
+  },
+  {
+    title: 'Snippit',
+    techs: ['Node', 'Express', 'MongoDB', 'React', 'Passport'],
+    image: 'snippit.png',
+    link: 'https://novel-19.herokuapp.com/home'
+  }
+]
 
 export default function About(props) {
 
   // Used for changing classes at specific viewports.
   const size = useWindowSize();
-
 
   /* ********************** Code from Gabe Ragland at usehooks.com/usewindowsize. ********************* */
   function useWindowSize() {
@@ -44,7 +65,7 @@ export default function About(props) {
 
   return (
     <>
-      {/****************************************** INTORDUCTION *****************************************/}
+      {/****************************************** INTRODUCTION *****************************************/}
       <Jumbotron className='jumbo-bg-light v-center-rows' fluid>
         <Row className='bg-animated'>
           <Col md={6} className='text-center my-5 my-md-auto'>
@@ -58,9 +79,7 @@ export default function About(props) {
             <p>I am an observer, a learner, and an achiever.</p>
           </Col>
           <Col md={6} className='text-center'>
-            <div className='div-border'>
-              <Image id='profile-pic' src={require('../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid/>
-            </div>
+            <Image id='profile-pic' src={require('../../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid/>
           </Col>
         </Row>
       </Jumbotron>
@@ -218,6 +237,36 @@ export default function About(props) {
                 </Col>
               </Row>
             </Col>
+          </Row>
+        </Container>
+      </Jumbotron>
+      {/******************************************* PORTFOLIO *******************************************/}
+      <h3 className='header-dark'><span className='ul-red ol-red'>Portfolio</span></h3>
+      <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
+        <Container>
+          <Row>
+            {projects.map((project, index) => {
+              return (
+                <Col md={4} key={index}>
+                  <Card>
+                    <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
+                    <Card.Body>
+                      <Card.Title>{project.title}</Card.Title>
+                      <p>
+                        {project.techs.map((tech, index) => {
+                          return (
+                            <>
+                              {(index !== 0) ? <><span className='dot'></span><span>{tech}</span></> : <span>{tech}</span>}
+                            </>
+                          );
+                        })}
+                      </p>
+                    </Card.Body>
+                    <a href={project.link} className='' target='_blank' rel='noopener noreferrer'><span></span></a>
+                  </Card>
+                </Col>
+              );
+            })}
           </Row>
         </Container>
       </Jumbotron>

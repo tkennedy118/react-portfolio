@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useTransition,  animated } from 'react-spring';
 import '../utils/styles/portfolio.css';
@@ -18,21 +18,7 @@ const projects = [
     image: 'covid-19.png',
     link: 'https://novel-19.herokuapp.com/home'
   },
-  {
-    title: 'Novel 19',
-    description: 'A mobile-friendly website designed to assist users in visualizing coronavirus cases in their region.',
-    techs: ['Express', 'Handlebars', 'Passport', 'Sequelize'],
-    image: 'covid-19.png',
-    link: 'https://novel-19.herokuapp.com/home'
-  },
-  {
-    title: 'Novel 19',
-    description: 'A mobile-friendly website designed to assist users in visualizing coronavirus cases in their region.',
-    techs: ['Express', 'Handlebars', 'Passport', 'Sequelize'],
-    image: 'covid-19.png',
-    link: 'https://novel-19.herokuapp.com/home'
-  },
-  {
+    {
     title: 'Novel 19',
     description: 'A mobile-friendly website designed to assist users in visualizing coronavirus cases in their region.',
     techs: ['Express', 'Handlebars', 'Passport', 'Sequelize'],
