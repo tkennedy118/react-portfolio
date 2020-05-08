@@ -3,7 +3,7 @@ import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bo
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
-import ScrollableAnchor, {configureAnchors, goToTop } from 'react-scrollable-anchor';
+import ScrollableAnchor, {configureAnchors } from 'react-scrollable-anchor';
 import { fadeIn, fadeFromLeft, fadeFromRight, fadeFromBottom, flipHex } from '../../utils/springs';
 import { projects } from '../../utils/projects';
 import './about.css';
@@ -157,6 +157,7 @@ export default function About(props) {
                 <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
                 <Card.Body className='p-card-body'>
                   <Card.Title className='p-card-header'>{project.title}</Card.Title>
+                  <br></br>
                   <p>
                     {project.techs.map((tech, index) => {
                       return (
@@ -177,6 +178,7 @@ export default function About(props) {
       </Row>
     );
   }
+
 
   // Used for changing classes at specific viewports.
   const size = useWindowSize();
@@ -217,6 +219,7 @@ export default function About(props) {
   return (
     <>
       {/****************************************** INTRODUCTION *****************************************/}
+      <ScrollableAnchor id={'top'}><p style={{ visibility: 'hidden' }}>Page Top</p></ScrollableAnchor>
       <Jumbotron className='jumbo-bg-light v-center-rows' fluid>
         <Row className='name-bg'>
           <Col md={6} className='text-center my-5 my-md-auto'>
@@ -319,7 +322,9 @@ export default function About(props) {
         </Container>
       </Jumbotron>
       <div className='half-circle'>
-        <FontAwesomeIcon icon={faAngleDoubleUp} size='3x' className='circle-icons' onClick={() => goToTop()}></FontAwesomeIcon>
+        <a href='#top'>
+          <FontAwesomeIcon icon={faAngleDoubleUp} size='3x' className='circle-icons'></FontAwesomeIcon>
+        </a>
       </div>
     </>
   );

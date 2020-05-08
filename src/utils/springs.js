@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spring, Trail } from 'react-spring/renderprops';
+import { Spring } from 'react-spring/renderprops';
 import VisibilitySensor from 'react-visibility-sensor';
 
 // Fade in string.

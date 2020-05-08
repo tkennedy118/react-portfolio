@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return(
     <BootsNavbar collapseOnSelect expand='md' fixed='top' variant='dark' className='nav-background shadow'>
-      <BootsNavbar.Brand href='/' className='nav-font-small'>TK</BootsNavbar.Brand>
+      <BootsNavbar.Brand href='/' className='nav-font-small tk'>TK</BootsNavbar.Brand>
       <BootsNavbar.Toggle aria-controls='responsive-nav-links' />
       <BootsNavbar.Collapse id='responsive-nav-links'>
         <Nav className='mx-auto'>
