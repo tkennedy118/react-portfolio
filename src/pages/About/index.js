@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
 import ScrollableAnchor, {configureAnchors, goToTop } from 'react-scrollable-anchor';
-import { fadeIn, fadeFromLeft, fadeFromRight } from '../../utils/springs';
+import { fadeIn, fadeFromLeft, fadeFromRight, flipHex } from '../../utils/springs';
 import { projects } from '../../utils/projects';
 import './about.css';
 import '../../utils/styles/shapes.css';
@@ -45,6 +45,107 @@ export default function About(props) {
         </p>
       </div>
     )
+  }
+
+  const hexOne = function() {
+    return (
+      <Row>
+        <Col md={6}>
+          <div className='hexagon mx-auto hex-margins'>
+            <FontAwesomeIcon icon={faDesktop} size='2x' className='hex-icons'></FontAwesomeIcon>
+          </div>
+          <div className='text-center'>
+            <h4>Browser Knowledge</h4>
+            <span>CSS</span>
+            <span className='dot'></span>
+            <span>&#60;&#47;HTML&#62;</span>
+            <span className='dot'></span>
+            <span>JavaScript</span>
+            <span className='dot'></span>
+            <span>jQuery</span>
+          </div>
+        </Col>
+        <Col md={6}>
+          <div className='hexagon mx-auto hex-margins'>
+            <FontAwesomeIcon icon={faServer} size='2x' className='hex-icons'></FontAwesomeIcon>
+          </div>
+          <div className='text-center'>
+            <h4>Server Side</h4>
+            <span>Node.js</span>
+            <span className='dot'></span>
+            <span>Express.js</span>
+            <span className='dot'></span>
+            <span>API Usage</span>
+          </div>
+        </Col>
+      </Row>
+    );
+  }
+
+  const hexTwo = function() {
+    return (
+      <Row>
+        <Col md={6}>
+          <div className='hexagon mx-auto hex-margins'>
+            <FontAwesomeIcon icon={faDatabase} size='2x' className='hex-icons'></FontAwesomeIcon>
+          </div>
+          <div className='text-center'>
+            <h4>Database</h4>
+            <span>MySQL</span>
+            <span className='dot'></span>
+            <span>NoSQL</span>
+            <span className='dot'></span>
+            <span>MongoDB</span>
+          </div>
+        </Col>
+        <Col md={6}>
+          <div className='hexagon mx-auto hex-margins'>
+            <FontAwesomeIcon icon={faGitAlt} size='2x' className='hex-icons'></FontAwesomeIcon>
+          </div>
+          <div className='text-center'>
+            <h4>Dev Tools</h4>
+            <span>Heroku</span>
+            <span className='dot'></span>
+            <span>Git</span>
+            <span className='dot'></span>
+            <span>Github</span>
+          </div>
+        </Col>
+      </Row>
+    );
+  }
+
+  const hexThree = function() {
+    return (
+      <Row>
+        <Col md={6}>
+          <div className='hexagon mx-auto hex-margins'>
+            <FontAwesomeIcon icon={faGraduationCap} size='2x' className='hex-icons'></FontAwesomeIcon>
+          </div>
+          <div className='text-center'>
+            <h4>Education</h4>
+            <span>B.S. Computer Science</span>
+            <span className='dot'></span>
+            <span>B.S Sociology</span>
+            <span className='dot'></span>
+            <span>Vanderbilt Coding Bootcamp</span>
+          </div>
+        </Col>
+        <Col md={6}>
+          <div className='hexagon mx-auto hex-margins'>
+            <FontAwesomeIcon icon={faSortAmountDown} size='2x' className='hex-icons'></FontAwesomeIcon>
+          </div>
+          <div className='text-center'>
+            <h4>Concepts</h4>
+            <span>CRUD Operations</span>
+            <span className='dot'></span>
+            <span>MVC</span>
+            <span className='dot'></span>
+            <span>Algorithms</span>
+          </div>
+        </Col>
+      </Row>
+    );
   }
 
   // Used for changing classes at specific viewports.
@@ -157,89 +258,20 @@ export default function About(props) {
       <Jumbotron className='jumbo-bg-light' fluid>
         <Container className='v-center-rows'>
           <Row>
-            <Col md={{ span: 8, offset: 2 }}>
+            <Col md={{ span: 10, offset: 1 }}>
               <Row>
-                <Col md={6}>
-                    <div className='hexagon mx-auto hex-margins'>
-                      <FontAwesomeIcon icon={faDesktop} size='2x' className='hex-icons'></FontAwesomeIcon>
-                    </div>
-                    <div className='text-center'>
-                      <h4>Browser Knowledge</h4>
-                      <span>CSS</span>
-                      <span className='dot'></span>
-                      <span>&#60;&#47;HTML&#62;</span>
-                      <span className='dot'></span>
-                      <span>JavaScript</span>
-                      <span className='dot'></span>
-                      <span>jQuery</span>
-                    </div>
-                </Col>
-                <Col md={6}>
-                    <div className='hexagon mx-auto hex-margins'>
-                    <FontAwesomeIcon icon={faServer} size='2x' className='hex-icons'></FontAwesomeIcon>
-                    </div>
-                    <div className='text-center'>
-                      <h4>Server Side</h4>
-                      <span>Node.js</span>
-                      <span className='dot'></span>
-                      <span>Express.js</span>
-                      <span className='dot'></span>
-                      <span>API Usage</span>
-                    </div>
+                <Col s={12}>
+                  {flipHex(hexOne())}
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>
-                    <div className='hexagon mx-auto hex-margins'>
-                      <FontAwesomeIcon icon={faDatabase} size='2x' className='hex-icons'></FontAwesomeIcon>
-                    </div>
-                    <div className='text-center'>
-                      <h4>Database</h4>
-                      <span>MySQL</span>
-                      <span className='dot'></span>
-                      <span>MongoDB</span>
-                    </div>
-                </Col>
-                <Col md={6}>
-                    <div className='hexagon mx-auto hex-margins'>
-                      <FontAwesomeIcon icon={faGitAlt} size='2x' className='hex-icons'></FontAwesomeIcon>
-                    </div>
-                    <div className='text-center'>
-                      <h4>Developer Tools</h4>
-                      <span>Heroku</span>
-                      <span className='dot'></span>
-                      <span>Git</span>
-                      <span className='dot'></span>
-                      <span>Github</span>
-                    </div>
+                <Col s={12}>
+                  {flipHex(hexTwo())}
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>
-                    <div className='hexagon mx-auto hex-margins'>
-                      <FontAwesomeIcon icon={faGraduationCap} size='2x' className='hex-icons'></FontAwesomeIcon>
-                    </div>
-                    <div className='text-center'>
-                      <h4>Education</h4>
-                      <span>B.S. Computer Science</span>
-                      <span className='dot'></span>
-                      <span>B.S Sociology</span>
-                      <span className='dot'></span>
-                      <span>Vanderbilt Coding Bootcamp</span>
-                    </div>
-                </Col>
-                <Col md={6}>
-                    <div className='hexagon mx-auto hex-margins'>
-                      <FontAwesomeIcon icon={faSortAmountDown} size='2x' className='hex-icons'></FontAwesomeIcon>
-                    </div>
-                    <div className='text-center'>
-                      <h4>Concepts</h4>
-                      <span>CRUD Operations</span>
-                      <span className='dot'></span>
-                      <span>MVC</span>
-                      <span className='dot'></span>
-                      <span>Algorithms</span>
-                    </div>
+                <Col s={12}>
+                  {flipHex(hexThree())}
                 </Col>
               </Row>
             </Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spring } from 'react-spring/renderprops';
+import { Spring, Trail } from 'react-spring/renderprops';
 import VisibilitySensor from 'react-visibility-sensor';
 
 // Fade in string.
@@ -25,7 +25,7 @@ export function fadeFromLeft(callback) {
             delay={100}
             to={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateX(0)" : "translateX(-256px)"
+              transform: isVisible ? 'translateX(0)' : 'translateX(-256px)'
             }}
             config={{ duration: 300 }}
           >
@@ -47,7 +47,7 @@ export function fadeFromRight(callback) {
             delay={100}
             to={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateX(0)" : "translateX(256px)"
+              transform: isVisible ? 'translateX(0)' : 'translateX(256px)'
             }}
             config={{ duration: 300 }}
           >
@@ -57,4 +57,23 @@ export function fadeFromRight(callback) {
       </VisibilitySensor>
     </span>
   );
+}
+
+export function flipHex(callback) {
+  return (
+    <VisibilitySensor partialVisibility>
+      {({ isVisible }) => (
+        <Spring
+          delay={100}
+          to={{ 
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'rotateY(0)' : 'rotateY(3.142rad)'
+          }}
+          config={{ duration: 300 }}
+        >
+          {props => <div style={{ ...props }}>{callback}</div>}
+        </Spring>
+      )}
+    </VisibilitySensor>
+  )
 }
