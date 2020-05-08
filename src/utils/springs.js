@@ -59,6 +59,29 @@ export function fadeFromRight(callback) {
   );
 }
 
+// Fade in the return value of the callback form bottom.
+export function fadeFromBottom(callback) {
+  return (
+    <span style={{ overflow: 'hidden' }}>
+      <VisibilitySensor partialVisibility>
+        {({ isVisible }) => (
+          <Spring 
+            delay={100}
+            to={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(256px)'
+            }}
+            config={{ duration: 300 }}
+          >
+            {props => <div style={{ ...props }}>{callback}</div>}
+          </Spring>
+        )}
+      </VisibilitySensor>
+    </span>
+  );
+}
+
+// Flip contents of callback.
 export function flipHex(callback) {
   return (
     <VisibilitySensor partialVisibility>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
-import { useSpring, animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
 import ScrollableAnchor, {configureAnchors, goToTop } from 'react-scrollable-anchor';
-import { fadeIn, fadeFromLeft, fadeFromRight, flipHex } from '../../utils/springs';
+import { fadeIn, fadeFromLeft, fadeFromRight, fadeFromBottom, flipHex } from '../../utils/springs';
 import { projects } from '../../utils/projects';
 import './about.css';
 import '../../utils/styles/shapes.css';
@@ -148,6 +147,37 @@ export default function About(props) {
     );
   }
 
+  const portfolioCards = function() {
+    return (
+      <Row className='mb-5'>
+        {projects.map((project, index) => {
+          return (
+            <Col md={4} key={index} className='px-1 py-3 d-flex align-items-stretch'>
+              <Card className='p-card'>
+                <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
+                <Card.Body className='p-card-body'>
+                  <Card.Title className='p-card-header'>{project.title}</Card.Title>
+                  <p>
+                    {project.techs.map((tech, index) => {
+                      return (
+                        <span key={index}>
+                          {(index !== 0) ? 
+                            <><span className='dot'></span><span className='font-small'>{tech}</span></> : 
+                            <span>{tech}</span>}
+                        </span>
+                      );
+                    })}
+                  </p>
+                </Card.Body>
+                <a href={project.link} className='stretched-link' target='_blank' rel='noopener noreferrer'><span></span></a>
+              </Card>
+            </Col>
+          );
+        })}
+      </Row>
+    );
+  }
+
   // Used for changing classes at specific viewports.
   const size = useWindowSize();
 
@@ -285,32 +315,7 @@ export default function About(props) {
       </ScrollableAnchor>
       <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
         <Container>
-          <Row className='mb-5'>
-            {projects.map((project, index) => {
-              return (
-                <Col md={4} key={index} className='px-1 py-3 d-flex align-items-stretch'>
-                  <Card className='p-card'>
-                    <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
-                    <Card.Body className='p-card-body'>
-                      <Card.Title className='p-card-header'>{project.title}</Card.Title>
-                      <p>
-                        {project.techs.map((tech, index) => {
-                          return (
-                            <span key={index}>
-                              {(index !== 0) ? 
-                                <><span className='dot'></span><span className='font-small'>{tech}</span></> : 
-                                <span>{tech}</span>}
-                            </span>
-                          );
-                        })}
-                      </p>
-                    </Card.Body>
-                    <a href={project.link} className='stretched-link' target='_blank' rel='noopener noreferrer'><span></span></a>
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
+          {fadeFromBottom(portfolioCards())}
         </Container>
       </Jumbotron>
       <div className='half-circle'>
