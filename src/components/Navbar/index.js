@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return(
     <BootsNavbar collapseOnSelect expand='md' fixed='top' variant='dark' className='nav-background shadow'>
-      <BootsNavbar.Brand href='/' className='nav-font-small tk'>TK</BootsNavbar.Brand>
+      <BootsNavbar.Brand href='#top' className='nav-font-small tk'>TK</BootsNavbar.Brand>
       <BootsNavbar.Toggle aria-controls='responsive-nav-links' />
       <BootsNavbar.Collapse id='responsive-nav-links'>
         <Nav className='mx-auto'>
@@ -18,8 +18,8 @@ export default function Navbar() {
         </Nav>
         <Nav>
           <div>
-            <a href='#'><FontAwesomeIcon size='2x' className='icon' icon={faLinkedinIn}>
-              </FontAwesomeIcon>
+            <a href='https://www.linkedin.com/in/tyler-kennedy-626070139' target='_blank' rel='noopener noreferrer'>
+              <FontAwesomeIcon size='2x' className='icon' icon={faLinkedinIn}></FontAwesomeIcon>
             </a>
             <a href='https://github.com/tkennedy118' target='_blank' rel='noopener noreferrer'>
               <FontAwesomeIcon size='2x' className='icon' icon={faGithub}></FontAwesomeIcon>

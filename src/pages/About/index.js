@@ -233,7 +233,7 @@ export default function About(props) {
       {/********************************************* ABOUT *********************************************/}
       {(size.width > 767) ? <div className='triangle-down'></div> : <></>}
       <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
-        <Container>
+        <Container className='my-5'>
           <ScrollableAnchor id={'about'}>
             {fadeFromLeft(aboutHeader())}
           </ScrollableAnchor>

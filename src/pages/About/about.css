@@ -173,7 +173,7 @@
 @media only screen and (min-width: 768px) {
   .jumbo-bg-light {
     background: #ffffff;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -181,7 +181,7 @@
   .jumbo-bg-dark {
     color: #eef2f3;
     background: #393d3f;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 0px;
     margin-bottom: 0px;
     padding-top: 0px;
