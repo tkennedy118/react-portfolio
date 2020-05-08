@@ -1,32 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
 import { useTransition,  animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown } from '@fortawesome/free-solid-svg-icons';
+import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
+import ScrollableAnchor, {configureAnchors, goToTop } from 'react-scrollable-anchor';
+import { projects } from '../../utils/projects';
 import './about.css';
 import '../../utils/styles/shapes.css';
-
-const projects = [
-  {
-    title: 'Novel 19',
-    techs: ['Node', 'Express', 'Handlebars', 'Passport', 'Sequelize', 'Javascript'],
-    image: 'covid-19.png',
-    link: 'https://novel-19.herokuapp.com/home'
-  },
-  {
-    title: 'Easy Lyrics',
-    techs: ['jQuery', 'AJAX', 'JavaScript'],
-    image: 'easy-lyrics.png',
-    link: 'https://tkennedy118.github.io/easy-lyrics/'
-  },
-  {
-    title: 'Snippit',
-    techs: ['Node', 'Express', 'MongoDB', 'React', 'Passport'],
-    image: 'snippit.png',
-    link: 'https://novel-19.herokuapp.com/home'
-  }
-]
 
 export default function About(props) {
 
@@ -63,20 +45,22 @@ export default function About(props) {
   }
   /* ************************************************************************************************** */
 
+  configureAnchors({ offset: -60, scrollDuration: 450 });
+
   return (
     <>
       {/****************************************** INTRODUCTION *****************************************/}
       <Jumbotron className='jumbo-bg-light v-center-rows' fluid>
-        <Row className='bg-animated'>
+        <Row className='name-bg'>
           <Col md={6} className='text-center my-5 my-md-auto'>
             <h2 id='name' className='my-3'>
-              <span className='ul-red ol-red'>
+              <span className='ul-pink ol-pink'>
                 <span className='vl-blue-left'></span>
                   Tyler Kennedy
                 <span className='vl-blue-right'></span>
               </span>
             </h2>
-            <p>I am an observer, a learner, and an achiever.</p>
+            <p className='font-large'>I am an observer, a learner, and an achiever.</p>
           </Col>
           <Col md={6} className='text-center'>
             <Image id='profile-pic' src={require('../../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid/>
@@ -87,7 +71,9 @@ export default function About(props) {
       {(size.width > 767) ? <div className='triangle-down'></div> : <></>}
       <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
         <Container>
-          <h3 className='header-dark'><span className='ul-red ol-red'>About</span></h3>
+          <ScrollableAnchor id={'about'}>
+            <h3 className='header-dark'><span className='ul-pink ol-pink'>About</span></h3>
+          </ScrollableAnchor>
           <Row>
             <Col md={{ span: 10, offset: 1 }}>
               <Row>
@@ -106,33 +92,33 @@ export default function About(props) {
                 <Col md={{ span: 10, offset: 1 }} className='my-auto'>
                 <h3 className='text-center mt-5 mb-3'>Soft Skills</h3>
                 <Accordion defaultActiveKey='1'>
-                  <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                  <Card className='a-card'>
+                    <Accordion.Toggle as={Card.Header} eventKey="0" className='a-card-header'>
                       Flexiblity
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
-                      <Card.Body>
+                      <Card.Body className='a-card-body'>
                         I've never really had a set schedule, and as a result I've learned to be flexible. 
                         Let me know what works for you, and I'll make it work for me too.
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
-                  <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                  <Card className='a-card'>
+                    <Accordion.Toggle as={Card.Header} eventKey="1" className='a-card-header'>
                       Cooperation
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
-                      <Card.Body>
+                      <Card.Body className='a-card-body'>
                         I work well with others... plain and simple. 
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
-                  <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="2">
+                  <Card className='a-card'>
+                    <Accordion.Toggle as={Card.Header} eventKey="2" className='a-card-header'>
                       Listening
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="2">
-                      <Card.Body>
+                      <Card.Body className='a-card-body'>
                         This is maybe a weird skill to talk about, but it's more important than most realize.
                         A focused listener can figure out what a client wants, and when to ask questions.
                       </Card.Body>
@@ -147,7 +133,9 @@ export default function About(props) {
       </Jumbotron>
       {(size.width > 767) ? <div className='triangle-up'></div> : <></>}
       {/********************************************* WHY ME ********************************************/}
-      <h3 className='header-light'><span className='ul-red ol-red'>Why me?</span></h3>
+      <ScrollableAnchor id={'skills'}>
+        <h3 className='header-light'><span className='ul-pink ol-pink'>Why me?</span></h3>
+      </ScrollableAnchor>
       <Jumbotron className='jumbo-bg-light' fluid>
         <Container className='v-center-rows'>
           <Row>
@@ -241,28 +229,32 @@ export default function About(props) {
         </Container>
       </Jumbotron>
       {/******************************************* PORTFOLIO *******************************************/}
-      <h3 className='header-dark'><span className='ul-red ol-red'>Portfolio</span></h3>
+      <ScrollableAnchor id={'portfolio'}>
+        <h3 className='header-dark pb-3'><span className='ul-pink ol-pink'>Portfolio</span></h3>
+      </ScrollableAnchor>
       <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
         <Container>
-          <Row>
+          <Row className='mb-5'>
             {projects.map((project, index) => {
               return (
-                <Col md={4} key={index}>
-                  <Card>
+                <Col md={4} key={index} className='px-1 py-3 d-flex align-items-stretch'>
+                  <Card className='p-card'>
                     <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
-                    <Card.Body>
-                      <Card.Title>{project.title}</Card.Title>
+                    <Card.Body className='p-card-body'>
+                      <Card.Title className='p-card-header'>{project.title}</Card.Title>
                       <p>
                         {project.techs.map((tech, index) => {
                           return (
-                            <>
-                              {(index !== 0) ? <><span className='dot'></span><span>{tech}</span></> : <span>{tech}</span>}
-                            </>
+                            <span key={index}>
+                              {(index !== 0) ? 
+                                <><span className='dot'></span><span className='font-small'>{tech}</span></> : 
+                                <span>{tech}</span>}
+                            </span>
                           );
                         })}
                       </p>
                     </Card.Body>
-                    <a href={project.link} className='' target='_blank' rel='noopener noreferrer'><span></span></a>
+                    <a href={project.link} className='stretched-link' target='_blank' rel='noopener noreferrer'><span></span></a>
                   </Card>
                 </Col>
               );
@@ -270,6 +262,9 @@ export default function About(props) {
           </Row>
         </Container>
       </Jumbotron>
+      <div className='half-circle'>
+        <FontAwesomeIcon icon={faAngleDoubleUp} size='3x' className='circle-icons' onClick={() => goToTop()}></FontAwesomeIcon>
+      </div>
     </>
   );
 }

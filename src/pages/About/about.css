@@ -6,28 +6,12 @@
   font-size: 1.15rem;
 }
 
-@keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: 100% 0; }
-}
-
-.bg-animated {
-  width: 100vw;
-  height: auto;
-  background-image: url('../../utils/images/background-lines.png');
-  background-position: 0px 0px;
-  background-repeat: repeat-x;
-
-  animation: animatedBackground 30s linear infinite;
-}
-
-/* changes to react-bootstrap classes */
-div.card {
+.a-card {
   border: 0;
   border-radius: 0;
 }
 
-div.card-header {
+.a-card-header {
   color: #32bcca;
   font-size: 1.15rem;
   background: #2b2e30; /* fallback for old browsers */
@@ -38,20 +22,40 @@ div.card-header {
   text-align: center;
 }
 
-div.card-body {
+.a-card-body {
   background: #393d3f;
   text-align: center;
 }
 
-.ul-red {
-  border-bottom: 4px solid #a61c3c;
+.p-card {
+  border: 1px solid #ff96c7;
+  border-radius: 0;
+}
+
+.p-card-header {
+  font-size: 1.15rem;
+  background: #2b2e30;
+  text-align: center;
+}
+
+.p-card-body {
+  background: #2b2e30;
+  text-align: center;
+}
+
+.p-card:hover {
+  color: #ff96c7;
+}
+
+.ul-pink {
+  border-bottom: 4px solid #ff96c7;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding-bottom: 2px;
 }
 
-.ol-red {
-  border-top: 4px solid #a61c3c;
+.ol-pink {
+  border-top: 4px solid #ff96c7;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding-top: 2px;
@@ -113,6 +117,22 @@ div.card-body {
   color: #eef2f3;
 }
 
+.circle-icons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  color: #eef2f3;
+}
+
+.circle-icons:hover {
+  color: #32bcca;
+}
+
+.circle-icons:active {
+  color: #298c97;
+}
+
 .font-large {
   font-size: 1.15rem;
 }
@@ -140,9 +160,13 @@ div.card-body {
   }
 
   #name {
+    font-family: 'IM FELL DW Pica', 'Pontano Sans', 'Comic Sans MS', sans-serif;
     font-size: 8vw;
-    color: #eef2f3;
-    opacity: 0.5;
+    color: #393d3f;
+  }
+
+  .name-bg {
+    border: 0;
   }
 }
 
@@ -163,9 +187,14 @@ div.card-body {
     padding-top: 0px;
   }
 
+  .name-bg {
+    border-top: 1px solid #ff96c7;
+    border-bottom: 1px solid #ff96c7;
+  }
+
   #name {
+    font-family: 'IM FELL DW Pica', 'Pontano Sans', 'Comic Sans MS', sans-serif;
     font-size: 5vw;
-    color: #eef2f3;
-    opacity: 0.5;
+    color: #3f3d3f;
   }
 }

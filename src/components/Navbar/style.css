@@ -1,11 +1,11 @@
 .nav-background {
   background: #373b44; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #a61c3c, #881a33); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #a61c3c, #881a33); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #2cb4c4, #2cb4c4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #32bcca, #2cb4c4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.nav-font-small {
-  font-size: 18px;
+.nav-font {
+  font-size: 1.15rem;
 }
 
 .icon {
