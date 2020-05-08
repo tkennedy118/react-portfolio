@@ -51,11 +51,22 @@
   z-index: 1;
 }
 
+.triangle-up-dark {
+  width: 0;
+  height: 0;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-bottom: 64px solid #393d3f;
+  margin-top: -64px;
+  position: relative;
+  z-index: 1;
+}
+
 .half-circle {
   width: 150px;
   height: 75px;
   background: #393d3f;
-  border: 2px solid #eef2f3;
+  border: 2px solid #32bcca;
   border-top-right-radius: 75px;
   border-top-left-radius: 75px;
   border-bottom: 0;

@@ -1,19 +1,55 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
-import { useTransition,  animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
 import ScrollableAnchor, {configureAnchors, goToTop } from 'react-scrollable-anchor';
+import { fadeIn, fadeFromLeft, fadeFromRight } from '../../utils/springs';
 import { projects } from '../../utils/projects';
 import './about.css';
 import '../../utils/styles/shapes.css';
 
 export default function About(props) {
 
+  // The following functions return elements that fade in using spring functions.
+  const renderName = function() {
+    return (
+      <>
+        <h2 id='name' className='my-3'>
+          <span className='ul-pink ol-pink'>
+            <span className='vl-blue-left'></span>
+              Tyler Kennedy
+            <span className='vl-blue-right'></span>
+          </span>
+        </h2>
+        <p className='font-large'>I am an observer, a learner, and an achiever.</p>
+      </>
+    )
+  }
+  
+  const aboutHeader = function() {
+    return <h3 className='header-dark'><span className='ul-pink ol-pink'>About</span></h3>;
+  }
+
+  const aboutText = function() {
+    return (
+      <div className='text-center font-large'>
+        <p>
+          I've alway wanted to live in a constant state of not-knowing-enough, 
+          and what better platform for that than the web?
+        </p>
+        <p>
+          With a B.S. in computer science and a Master's in IT on the way, I'm 
+          ready to make your vision come to life.
+        </p>
+      </div>
+    )
+  }
+
   // Used for changing classes at specific viewports.
   const size = useWindowSize();
+
 
   /* ********************** Code from Gabe Ragland at usehooks.com/usewindowsize. ********************* */
   function useWindowSize() {
@@ -53,17 +89,10 @@ export default function About(props) {
       <Jumbotron className='jumbo-bg-light v-center-rows' fluid>
         <Row className='name-bg'>
           <Col md={6} className='text-center my-5 my-md-auto'>
-            <h2 id='name' className='my-3'>
-              <span className='ul-pink ol-pink'>
-                <span className='vl-blue-left'></span>
-                  Tyler Kennedy
-                <span className='vl-blue-right'></span>
-              </span>
-            </h2>
-            <p className='font-large'>I am an observer, a learner, and an achiever.</p>
+            {fadeFromLeft(renderName())}
           </Col>
           <Col md={6} className='text-center'>
-            <Image id='profile-pic' src={require('../../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid/>
+            {fadeIn(<Image id='profile-pic' src={require('../../utils/images/portfolio.png')} alt='Tyler Kennedy' fluid/>)}
           </Col>
         </Row>
       </Jumbotron>
@@ -72,55 +101,44 @@ export default function About(props) {
       <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
         <Container>
           <ScrollableAnchor id={'about'}>
-            <h3 className='header-dark'><span className='ul-pink ol-pink'>About</span></h3>
+            {fadeFromLeft(aboutHeader())}
           </ScrollableAnchor>
           <Row>
             <Col md={{ span: 10, offset: 1 }}>
               <Row>
                 <Col md={{ span: 6, offset: 3 }} className='my-3'>
-                  <div className='text-center font-large'>
-                    <p>
-                      I've alway wanted to live in a constant state of not-knowing-enough, 
-                      and what better platform for that than the web?
-                    </p>
-                    <p>
-                      With a B.S. in computer science and a Master's in IT on the way, I'm 
-                      ready to make your vision come to life.
-                    </p>
-                  </div>
+                  {fadeFromRight(aboutText())}
                 </Col>
                 <Col md={{ span: 10, offset: 1 }} className='my-auto'>
-                <h3 className='text-center mt-5 mb-3'>Soft Skills</h3>
+                <h3 className='text-center mt-5 mb-3'>{fadeIn('Soft Skills')}</h3>
                 <Accordion defaultActiveKey='1'>
                   <Card className='a-card'>
                     <Accordion.Toggle as={Card.Header} eventKey="0" className='a-card-header'>
-                      Flexiblity
+                      {fadeIn('Flexibility')}
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                       <Card.Body className='a-card-body'>
-                        I've never really had a set schedule, and as a result I've learned to be flexible. 
-                        Let me know what works for you, and I'll make it work for me too.
+                        {fadeIn('I\'ve never really had a set schedule, and as a result I\'ve learned to be flexible. Let me know what works for you, and I\'ll make it work for me too.')}
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                   <Card className='a-card'>
                     <Accordion.Toggle as={Card.Header} eventKey="1" className='a-card-header'>
-                      Cooperation
+                      {fadeIn('Cooperation')}
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
                       <Card.Body className='a-card-body'>
-                        I work well with others... plain and simple. 
+                        {fadeIn('I work well with others... plain and simple.')} 
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                   <Card className='a-card'>
                     <Accordion.Toggle as={Card.Header} eventKey="2" className='a-card-header'>
-                      Listening
+                      {fadeIn('Listening')}
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="2">
                       <Card.Body className='a-card-body'>
-                        This is maybe a weird skill to talk about, but it's more important than most realize.
-                        A focused listener can figure out what a client wants, and when to ask questions.
+                        {fadeIn('This is maybe a weird skill to talk about, but it\'s more important than most realize. A focused listener can figure out what a client wants, and when to ask questions.')}
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
@@ -134,7 +152,7 @@ export default function About(props) {
       {(size.width > 767) ? <div className='triangle-up'></div> : <></>}
       {/********************************************* WHY ME ********************************************/}
       <ScrollableAnchor id={'skills'}>
-        <h3 className='header-light'><span className='ul-pink ol-pink'>Why me?</span></h3>
+        <h3 className='header-light'><span className='ul-pink ol-pink'>{fadeIn('Why me?')}</span></h3>
       </ScrollableAnchor>
       <Jumbotron className='jumbo-bg-light' fluid>
         <Container className='v-center-rows'>
@@ -228,9 +246,10 @@ export default function About(props) {
           </Row>
         </Container>
       </Jumbotron>
+      {(size.width > 767) ? <div className='triangle-up-dark'></div> : <></>}
       {/******************************************* PORTFOLIO *******************************************/}
       <ScrollableAnchor id={'portfolio'}>
-        <h3 className='header-dark pb-3'><span className='ul-pink ol-pink'>Portfolio</span></h3>
+        <h3 className='header-dark pb-3'><span className='ul-pink ol-pink'>{fadeIn('Portfolio')}</span></h3>
       </ScrollableAnchor>
       <Jumbotron className='jumbo-bg-dark v-center-rows' fluid>
         <Container>
