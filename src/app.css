@@ -7,5 +7,6 @@
 body {
   font-family: 'Pontano Sans', 'Comic Sans MS', sans-serif;
   padding-top: 55px;
+  scrollbar-width: none;
   overflow-x: hidden;
 }
