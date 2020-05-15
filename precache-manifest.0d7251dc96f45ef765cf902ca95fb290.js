@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b78f9a892bd1e1125b0392fe50798be6",
+    "revision": "41464f2a3d432c3358d82f8020e28b36",
     "url": "/react-portfolio/index.html"
   },
   {
-    "revision": "b2eab6d522d416ff2cf0",
+    "revision": "a4590ae8da78b7b2b8a7",
     "url": "/react-portfolio/static/css/2.69121389.chunk.css"
   },
   {
-    "revision": "3283832e2d92d6063954",
-    "url": "/react-portfolio/static/css/main.a09fa77f.chunk.css"
+    "revision": "ea715fb2ae4fdaf1a117",
+    "url": "/react-portfolio/static/css/main.5aace6ed.chunk.css"
   },
   {
-    "revision": "b2eab6d522d416ff2cf0",
-    "url": "/react-portfolio/static/js/2.8aaf8899.chunk.js"
+    "revision": "a4590ae8da78b7b2b8a7",
+    "url": "/react-portfolio/static/js/2.f2f35102.chunk.js"
   },
   {
     "revision": "9d36fd18d7d7b7370f96c95702a6c2fd",
-    "url": "/react-portfolio/static/js/2.8aaf8899.chunk.js.LICENSE.txt"
+    "url": "/react-portfolio/static/js/2.f2f35102.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3283832e2d92d6063954",
-    "url": "/react-portfolio/static/js/main.93864534.chunk.js"
+    "revision": "ea715fb2ae4fdaf1a117",
+    "url": "/react-portfolio/static/js/main.ac3fb4c2.chunk.js"
   },
   {
     "revision": "c01136dc6b7e393f307b",
@@ -40,8 +40,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-portfolio/static/media/easy-lyrics.2ce9d549.png"
   },
   {
+    "revision": "fde1599dc7f27d6e157b18fdef255f03",
+    "url": "/react-portfolio/static/media/paint-blue.fde1599d.png"
+  },
+  {
+    "revision": "c42c04b908b291028877bd12a97223be",
+    "url": "/react-portfolio/static/media/paint-red.c42c04b9.png"
+  },
+  {
+    "revision": "bacd8204669f45066e2fdb869ef4e184",
+    "url": "/react-portfolio/static/media/paint-white.bacd8204.png"
+  },
+  {
     "revision": "448401504c65dcbe83fe441c7e5d321e",
     "url": "/react-portfolio/static/media/portfolio.44840150.png"
+  },
+  {
+    "revision": "f35b4249fd0882e68d984d3f8364077f",
+    "url": "/react-portfolio/static/media/profile-background.f35b4249.png"
   },
   {
     "revision": "c99f1023b219277900c2a6e4ac95c65e",
