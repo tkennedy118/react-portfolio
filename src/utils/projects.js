@@ -3,7 +3,7 @@ export const projects = [
     title: 'Novel 19',
     techs: ['Node', 'Express', 'Handlebars', 'Passport', 'Sequelize', 'Javascript'],
     image: 'covid-19.png',
-    link: 'https://github.com/tkennedy118/novel-19'
+    link: 'https://github.com/garrettmroberts/novel-19'
   },
   {
     title: 'Easy Lyrics',

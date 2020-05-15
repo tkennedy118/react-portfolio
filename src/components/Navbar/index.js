@@ -7,7 +7,7 @@ import './style.css';
 export default function Navbar() {
 
   return(
-    <BootsNavbar collapseOnSelect expand='md' fixed='top' variant='dark' className='nav-background shadow'>
+    <BootsNavbar collapseOnSelect expand='md' fixed='top' variant='dark' className='nav-background shadow' style={{ width: '100vw' }}>
       <BootsNavbar.Brand href='#top' className='nav-font-small tk'>TK</BootsNavbar.Brand>
       <BootsNavbar.Toggle aria-controls='responsive-nav-links' />
       <BootsNavbar.Collapse id='responsive-nav-links'>
