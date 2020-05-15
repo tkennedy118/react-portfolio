@@ -152,7 +152,7 @@ export default function About(props) {
       <Row className='mb-5'>
         {projects.map((project, index) => {
           return (
-            <Col md={4} key={index} className='px-1 py-3 d-flex align-items-stretch'>
+            <Col md={4} key={index} className='px-sm-5 px-md-1 py-3 d-flex align-items-stretch'>
               <Card className='p-card'>
                 <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
                 <Card.Body className='p-card-body'>
