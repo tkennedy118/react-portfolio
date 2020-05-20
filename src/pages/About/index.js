@@ -22,7 +22,12 @@ export default function About(props) {
             <span className='vl-blue-right'></span>
           </span>
         </h2>
-        <p className='font-large'>I am an observer, a learner, and an achiever.</p>
+        <p className='font-large mb-0'>I am an observer, a learner, and an achiever.</p>
+        <p>Contact me at&nbsp;
+          <span>
+            <a href='mailto: tkennedy118@gmail.com'>tkennedy118@gmail.com</a>
+          </span>
+        </p>
       </>
     )
   }
