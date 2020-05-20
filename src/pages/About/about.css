@@ -32,6 +32,20 @@
   border-radius: 2px;
 }
 
+@media only screen and (min-width: 991px) {
+  .p-card-description {
+    height: 72px;
+  }
+  
+  .p-card-techs {
+    height: 48px;
+  }
+}
+
+.p-card-button {
+  margin-bottom: 8px;
+}
+
 .p-card-header {
   font-size: 1.15rem;
   background: #2b2e30;
@@ -41,6 +55,7 @@
 .p-card-body {
   background: #2b2e30;
   text-align: center;
+  padding-bottom: 0px;
 }
 
 .p-card:hover {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Jumbotron, Row, Col, Image, Accordion, Card } from 'react-bootstrap';
+import { Container, Jumbotron, Row, Col, Image, Accordion, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faServer, faDatabase, faGraduationCap, faSortAmountDown, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
@@ -152,13 +152,14 @@ export default function About(props) {
       <Row className='mb-5'>
         {projects.map((project, index) => {
           return (
-            <Col md={4} key={index} className='px-sm-5 px-md-1 py-3 d-flex align-items-stretch'>
+            <Col lg={4} key={index} className='px-sm-5 px-md-1 py-3 d-flex align-items-stretch'>
               <Card className='p-card'>
                 <Card.Img variant='top' src={require('../../utils/images/' + project.image)} />
                 <Card.Body className='p-card-body'>
                   <Card.Title className='p-card-header'>{project.title}</Card.Title>
                   <br></br>
-                  <p>
+                  <p className='p-card-description'>{project.description}</p>
+                  <p className='p-card-techs'>
                     {project.techs.map((tech, index) => {
                       return (
                         <span key={index}>
@@ -169,8 +170,15 @@ export default function About(props) {
                       );
                     })}
                   </p>
+                  <Row className='p-card-fixed-height-content'>
+                    <Col sm={6}>
+                      <Button variant='outline-light' href={project.link} block target='_blank' rel='noopener noreferrer' className='p-card-button'>Repo</Button>
+                    </Col>
+                    <Col sm={6}>
+                      <Button variant='outline-light' href={project.deployment} block target='_blank' rel='noopener noreferrer' className='p-card-button'>Deployment</Button>
+                    </Col>
+                  </Row>
                 </Card.Body>
-                <a href={project.link} className='stretched-link' target='_blank' rel='noopener noreferrer'><span></span></a>
               </Card>
             </Col>
           );
