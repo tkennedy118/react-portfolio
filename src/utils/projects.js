@@ -20,7 +20,7 @@ export const projects = [
     techs: ['Node', 'Express', 'MongoDB', 'React', 'Passport'],
     image: 'snippit.png',
     link: 'https://github.com/brunojoey/snippit',
-    deployment: 'https://enigmatic-savannah-04948.herokuapp.com/',
+    deployment: 'https://snippit-for-coding.herokuapp.com/',
     description: 'Community site that allows web developers to share, search, and respond to code-based questions.'
   }
 ];
